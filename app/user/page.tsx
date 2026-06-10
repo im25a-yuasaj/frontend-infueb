@@ -1,5 +1,8 @@
 import Link from 'next/link';
-import { getDataFromServer, User } from '../../components/serverActions';
+import { getDataFromServer, handleFormSubmitUser } from '../../components/serverActions';
+import type { User } from '../../types/user';
+import UserForm from '../../components/UserForm';
+
 
 async function UserPage() {
     const data = await getDataFromServer('user', '');
@@ -17,9 +20,7 @@ async function UserPage() {
                         ))}
                 </select>
             </form>
-            <ul>
-
-            </ul>
+            <UserForm />
         </div>
     );
 }
